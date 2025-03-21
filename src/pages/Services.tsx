@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { ArrowRight, Palette, Repeat, Tool, Sparkles, Scale, Package } from 'lucide-react';
+import { ArrowRight, Palette, Repeat, Wrench, Sparkles, Scale, Package } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Footer from '@/components/Footer';
 
@@ -37,7 +37,7 @@ const services = [
     id: 3,
     title: "Jewelry Maintenance & Polishing",
     description: "Keep your precious jewelry looking as stunning as the day you bought it. Our professional maintenance services extend the life and luster of your beloved pieces.",
-    icon: <Tool className="text-gold w-10 h-10" />,
+    icon: <Wrench className="text-gold w-10 h-10" />,
     features: [
       "Deep cleaning to remove dirt and residues",
       "Professional polishing to restore shine",
