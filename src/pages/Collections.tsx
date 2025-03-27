@@ -349,7 +349,7 @@ const Collections = () => {
         />
       )}
       
-      <Footer />
+   
     </div>
   );
 };

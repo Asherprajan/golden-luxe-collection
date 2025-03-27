@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
@@ -159,12 +158,12 @@ const CategoryManager = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 bg-gray-900 p-6 rounded-lg">
       <div className="flex justify-between items-center">
-        <h2 className="text-xl font-semibold text-coffee">Categories</h2>
+        <h2 className="text-xl font-semibold text-white">Categories</h2>
         <Button 
           onClick={() => setShowAddForm(!showAddForm)}
-          className="bg-gold hover:bg-gold/80 text-coffee"
+          className="bg-blue-600 hover:bg-blue-700 text-white"
         >
           <Plus className="mr-2 h-4 w-4" /> 
           {showAddForm ? "Cancel" : "Add Category"}
@@ -172,29 +171,31 @@ const CategoryManager = () => {
       </div>
 
       {showAddForm && (
-        <div className="bg-beige/10 p-4 rounded-md mb-6">
-          <h3 className="text-lg font-medium mb-4">Add New Category</h3>
+        <div className="bg-gray-800 p-4 rounded-md mb-6">
+          <h3 className="text-lg font-medium mb-4 text-white">Add New Category</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="block text-sm font-medium mb-1">Name</label>
+              <label className="block text-sm font-medium mb-1 text-gray-300">Name</label>
               <Input
                 value={newCategory.name}
                 onChange={(e) => setNewCategory({...newCategory, name: e.target.value})}
                 placeholder="Category name"
+                className="bg-gray-700 border-gray-600 text-white focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-1">Slug</label>
+              <label className="block text-sm font-medium mb-1 text-gray-300">Slug</label>
               <Input
                 value={newCategory.slug}
                 onChange={(e) => setNewCategory({...newCategory, slug: e.target.value})}
                 placeholder="category-slug"
+                className="bg-gray-700 border-gray-600 text-white focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
           </div>
           <Button 
             onClick={handleAddCategory}
-            className="bg-gold hover:bg-gold/80 text-coffee"
+            className="bg-blue-600 hover:bg-blue-700 text-white"
           >
             Add Category
           </Button>
@@ -202,41 +203,43 @@ const CategoryManager = () => {
       )}
 
       {isLoading ? (
-        <div className="text-center py-8">Loading categories...</div>
+        <div className="text-center py-8 text-gray-300">Loading categories...</div>
       ) : (
-        <Table>
+        <Table className="bg-gray-800 rounded-lg">
           <TableHeader>
-            <TableRow>
-              <TableHead>Name</TableHead>
-              <TableHead>Slug</TableHead>
-              <TableHead className="text-right">Actions</TableHead>
+            <TableRow className="hover:bg-gray-800">
+              <TableHead className="text-gray-300">Name</TableHead>
+              <TableHead className="text-gray-300">Slug</TableHead>
+              <TableHead className="text-right text-gray-300">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {categories.length === 0 ? (
-              <TableRow>
-                <TableCell colSpan={3} className="text-center py-4">
+              <TableRow className="hover:bg-gray-800">
+                <TableCell colSpan={3} className="text-center py-4 text-gray-300">
                   No categories found
                 </TableCell>
               </TableRow>
             ) : (
               categories.map((category) => (
-                <TableRow key={category.id}>
-                  <TableCell>
+                <TableRow key={category.id} className="hover:bg-gray-750">
+                  <TableCell className="text-white">
                     {editingId === category.id ? (
                       <Input
                         value={editForm.name}
                         onChange={(e) => setEditForm({...editForm, name: e.target.value})}
+                        className="bg-gray-700 border-gray-600 text-white focus:ring-blue-500 focus:border-blue-500"
                       />
                     ) : (
                       category.name
                     )}
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="text-white">
                     {editingId === category.id ? (
                       <Input
                         value={editForm.slug}
                         onChange={(e) => setEditForm({...editForm, slug: e.target.value})}
+                        className="bg-gray-700 border-gray-600 text-white focus:ring-blue-500 focus:border-blue-500"
                       />
                     ) : (
                       category.slug
@@ -249,7 +252,7 @@ const CategoryManager = () => {
                           size="sm" 
                           variant="outline" 
                           onClick={() => handleSaveEdit(category.id)}
-                          className="text-green-600 border-green-600 hover:bg-green-50"
+                          className="text-green-400 border-green-400 hover:bg-green-400/10"
                         >
                           <Save className="h-4 w-4" />
                         </Button>
@@ -257,7 +260,7 @@ const CategoryManager = () => {
                           size="sm" 
                           variant="outline" 
                           onClick={handleCancelEdit}
-                          className="text-gray-500 border-gray-500 hover:bg-gray-50"
+                          className="text-gray-400 border-gray-400 hover:bg-gray-400/10"
                         >
                           <X className="h-4 w-4" />
                         </Button>
@@ -276,7 +279,7 @@ const CategoryManager = () => {
                           size="sm" 
                           variant="outline" 
                           onClick={() => handleDelete(category.id)}
-                          className="text-red-600 border-red-600 hover:bg-red-50"
+                            className="text-red-600 border-red-600 hover:bg-red-50"
                         >
                           <Trash2 className="h-4 w-4" />
                         </Button>

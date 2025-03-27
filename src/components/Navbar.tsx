@@ -1,27 +1,12 @@
-
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
   
   const isActive = (path: string) => location.pathname === path;
-  
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
   
   useEffect(() => {
     // Close mobile menu when route changes
@@ -29,13 +14,7 @@ const Navbar = () => {
   }, [location]);
   
   return (
-    <header 
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'py-3 bg-coffee/95 backdrop-blur-md shadow-md' 
-          : 'py-5 bg-transparent'
-      }`}
-    >
+      <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 bg-blur bg-coffee/95">
       <div className="container mx-auto px-6 flex justify-between items-center">
         <Link 
           to="/" 
@@ -78,6 +57,10 @@ const Navbar = () => {
         className={`md:hidden fixed inset-0 z-40 bg-coffee-light/98 backdrop-blur-lg transition-all duration-300 transform ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
+        style={{
+          backdropFilter: 'blur(10px)',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)'
+        }}
       >
         <div className="flex flex-col items-center justify-center h-full space-y-8 text-center">
           <Link to="/" className={`text-2xl ${isActive('/') ? 'text-gold' : 'text-beige'}`}>

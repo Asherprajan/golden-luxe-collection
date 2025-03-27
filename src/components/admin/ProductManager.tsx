@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
@@ -248,7 +247,7 @@ const ProductManager = () => {
               placeholder="Search products..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="pl-9 w-full"
+              className="pl-9 w-full bg-gray-800 border-gray-700 text-white focus:ring-gold focus:border-gold"
             />
           </div>
           <Button 
@@ -261,35 +260,35 @@ const ProductManager = () => {
       </div>
 
       {isLoading ? (
-        <div className="text-center py-8">Loading products...</div>
+        <div className="text-center py-8 text-gray-300">Loading products...</div>
       ) : (
         <div className="overflow-x-auto">
           <Table>
             <TableHeader>
-              <TableRow>
-                <TableHead>Name</TableHead>
-                <TableHead>Price</TableHead>
-                <TableHead>Category</TableHead>
-                <TableHead>Material</TableHead>
-                <TableHead>Occasion</TableHead>
-                <TableHead className="text-right">Actions</TableHead>
+              <TableRow className="border-gray-700">
+                <TableHead className="text-gray-300">Name</TableHead>
+                <TableHead className="text-gray-300">Price</TableHead>
+                <TableHead className="text-gray-300">Category</TableHead>
+                <TableHead className="text-gray-300">Material</TableHead>
+                <TableHead className="text-gray-300">Occasion</TableHead>
+                <TableHead className="text-gray-300 text-right">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {filteredProducts.length === 0 ? (
-                <TableRow>
-                  <TableCell colSpan={6} className="text-center py-4">
+                <TableRow className="border-gray-700">
+                  <TableCell colSpan={6} className="text-center py-4 text-gray-300">
                     No products found
                   </TableCell>
                 </TableRow>
               ) : (
                 filteredProducts.map((product) => (
-                  <TableRow key={product.id}>
-                    <TableCell className="font-medium">{product.name}</TableCell>
-                    <TableCell>{formatPrice(product.price)}</TableCell>
-                    <TableCell>{getCategoryName(product.category_id)}</TableCell>
-                    <TableCell>{product.material || '-'}</TableCell>
-                    <TableCell>{product.occasion || '-'}</TableCell>
+                  <TableRow key={product.id} className="border-gray-700">
+                    <TableCell className="font-medium text-gray-200">{product.name}</TableCell>
+                    <TableCell className="text-gray-300">{formatPrice(product.price)}</TableCell>
+                    <TableCell className="text-gray-300">{getCategoryName(product.category_id)}</TableCell>
+                    <TableCell className="text-gray-300">{product.material || '-'}</TableCell>
+                    <TableCell className="text-gray-300">{product.occasion || '-'}</TableCell>
                     <TableCell className="text-right">
                       <div className="flex justify-end space-x-2">
                         <Button 
@@ -320,9 +319,9 @@ const ProductManager = () => {
 
       {/* Add/Edit Product Dialog */}
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-        <DialogContent className="sm:max-w-[600px]">
+        <DialogContent className="sm:max-w-[600px] bg-gray-900 text-white">
           <DialogHeader>
-            <DialogTitle>
+            <DialogTitle className="text-white">
               {isEditing ? "Edit Product" : "Add New Product"}
             </DialogTitle>
           </DialogHeader>
@@ -330,48 +329,55 @@ const ProductManager = () => {
           <div className="grid gap-4 py-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="text-sm font-medium">Name *</label>
+                <label className="text-sm font-medium text-gray-300">Name *</label>
                 <Input
                   value={currentProduct.name}
                   onChange={(e) => setCurrentProduct({...currentProduct, name: e.target.value})}
                   placeholder="Product name"
+                  className="bg-gray-800 border-gray-700 text-white focus:ring-gold focus:border-gold"
                 />
               </div>
               
               <div className="space-y-2">
-                <label className="text-sm font-medium">Price (₹) *</label>
+                <label className="text-sm font-medium text-gray-300">Price (₹) *</label>
                 <Input
                   type="number"
                   value={currentProduct.price}
                   onChange={(e) => setCurrentProduct({...currentProduct, price: Number(e.target.value)})}
                   placeholder="Price in rupees"
+                  className="bg-gray-800 border-gray-700 text-white focus:ring-gold focus:border-gold"
                 />
               </div>
             </div>
             
             <div className="space-y-2">
-              <label className="text-sm font-medium">Description</label>
+              <label className="text-sm font-medium text-gray-300">Description</label>
               <Textarea
                 value={currentProduct.description || ""}
                 onChange={(e) => setCurrentProduct({...currentProduct, description: e.target.value})}
                 placeholder="Product description"
                 rows={3}
+                className="bg-gray-800 border-gray-700 text-white focus:ring-gold focus:border-gold"
               />
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="text-sm font-medium">Category *</label>
+                <label className="text-sm font-medium text-gray-300">Category *</label>
                 <Select
                   value={currentProduct.category_id}
                   onValueChange={(value) => setCurrentProduct({...currentProduct, category_id: value})}
                 >
-                  <SelectTrigger>
+                  <SelectTrigger className="bg-gray-800 border-gray-700 text-white focus:ring-gold focus:border-gold">
                     <SelectValue placeholder="Select a category" />
                   </SelectTrigger>
-                  <SelectContent>
+                  <SelectContent className="bg-gray-800 border-gray-700 text-white">
                     {categories.map((category) => (
-                      <SelectItem key={category.id} value={category.id}>
+                      <SelectItem 
+                        key={category.id} 
+                        value={category.id}
+                        className="hover:bg-gray-700 focus:bg-gray-700"
+                      >
                         {category.name}
                       </SelectItem>
                     ))}
@@ -380,39 +386,51 @@ const ProductManager = () => {
               </div>
               
               <div className="space-y-2">
-                <label className="text-sm font-medium">Image URL *</label>
+                <label className="text-sm font-medium text-gray-300">Image URL *</label>
                 <Input
                   value={currentProduct.image_url}
                   onChange={(e) => setCurrentProduct({...currentProduct, image_url: e.target.value})}
                   placeholder="https://example.com/image.jpg"
+                  className="bg-gray-800 border-gray-700 text-white focus:ring-gold focus:border-gold"
                 />
               </div>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="space-y-2">
-                <label className="text-sm font-medium">Material</label>
+                <label className="text-sm font-medium text-gray-300">Material</label>
                 <Input
                   value={currentProduct.material || ""}
                   onChange={(e) => setCurrentProduct({...currentProduct, material: e.target.value})}
                   placeholder="Gold, Silver, Diamond, etc."
+                  className="bg-gray-800 border-gray-700 text-white focus:ring-gold focus:border-gold"
                 />
               </div>
               
               <div className="space-y-2">
-                <label className="text-sm font-medium">Occasion</label>
+                <label className="text-sm font-medium text-gray-300">Occasion</label>
                 <Input
                   value={currentProduct.occasion || ""}
                   onChange={(e) => setCurrentProduct({...currentProduct, occasion: e.target.value})}
                   placeholder="Wedding, Party, Daily, etc."
+                  className="bg-gray-800 border-gray-700 text-white focus:ring-gold focus:border-gold"
                 />
               </div>
             </div>
           </div>
           
           <DialogFooter>
-            <Button variant="outline" onClick={() => setDialogOpen(false)}>Cancel</Button>
-            <Button onClick={handleSubmit} className="bg-gold hover:bg-gold/80 text-coffee">
+            <Button 
+              variant="outline" 
+              onClick={() => setDialogOpen(false)}
+              className="text-white border-gray-700 hover:bg-gray-800"
+            >
+              Cancel
+            </Button>
+            <Button 
+              onClick={handleSubmit} 
+              className="bg-gold hover:bg-gold/80 text-gray-900"
+            >
               {isEditing ? "Update Product" : "Add Product"}
             </Button>
           </DialogFooter>
