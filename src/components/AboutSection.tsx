@@ -26,16 +26,16 @@ const AboutSection = () => {
               <span className="text-gold font-light tracking-widest uppercase text-sm border-b border-gold/30 pb-1">Our Legacy</span>
             </div>
             <h2 className="font-playfair text-4xl md:text-5xl text-gold mb-8 leading-tight">
-              A Heritage of <span className="italic">Excellence</span> <br />Since 1987
+              A Heritage of <span className="italic">Excellence</span> <br />Since 2004
             </h2>
             <div className="space-y-6 text-beige/90">
               <p className="leading-relaxed">
-                For over three decades, Swarnalaya has been crafting precious moments through exquisite jewelry. 
+                For nearly two decades, Swarnalaya Gold & Diamonds in Parappanangadi, Kerala has been crafting precious moments through exquisite jewelry. 
                 What began as a small family workshop has blossomed into one of the region's most trusted names in gold and diamond jewelry.
               </p>
               <p className="leading-relaxed">
                 Our journey is marked by an unwavering commitment to quality, craftsmanship, and customer satisfaction. 
-                Every piece that bears the Swarnalaya name carries with it our promise of excellence and timeless beauty.
+                Every piece that bears the Swarnalaya name carries with it our promise of excellence and timeless beauty, rooted in the rich jewelry traditions of Kerala.
               </p>
             </div>
             <Link 
@@ -53,7 +53,7 @@ const AboutSection = () => {
             <div className="absolute -bottom-6 -right-6 w-40 h-40 border-b border-r border-gold/30"></div>
             <div className="relative overflow-hidden rounded-md shadow-xl">
               <img 
-                src="https://images.unsplash.com/photo-1573408301828-9145ea517a3c?w=800&auto=format&fit=crop&q=80" 
+                src="/about.jpg" 
                 alt="Goldsmith workshop" 
                 className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-700 ease-in-out"
               />
@@ -61,7 +61,7 @@ const AboutSection = () => {
               <div className="absolute bottom-0 left-0 right-0 p-8">
                 <div className="bg-coffee/80 backdrop-blur-sm p-6 rounded-md border-l-2 border-gold/50">
                   <span className="text-gold font-playfair text-xl block mb-2">Artisan Craftsmanship</span>
-                  <p className="text-beige/90">Every piece handcrafted with precision and care by our master jewelers</p>
+                  <p className="text-beige/90">Every piece handcrafted with precision and care by our master jewelers in Parappanangadi</p>
                 </div>
               </div>
             </div>

@@ -17,3 +17,11 @@ export type Product = {
   occasion: string | null;
   created_at: string;
 }
+
+
+export type GoldRate = {
+  id: string;
+  rate: number;
+  created_at: string;
+}
+

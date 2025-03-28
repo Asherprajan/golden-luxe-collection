@@ -131,8 +131,8 @@ const getImageForCategory = (slug: string) => {
   const categoryImages: Record<string, string> = {
     'necklaces': 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&auto=format&fit=crop&q=80',
     'rings': 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&auto=format&fit=crop&q=80',
-    'bangles': 'https://images.unsplash.com/photo-1619119069939-8f29d5991570?w=600&auto=format&fit=crop&q=80',
-    'earrings': 'https://images.unsplash.com/photo-1589128777073-263566ae5e4d?w=600&auto=format&fit=crop&q=80',
+    'bangles': 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    'earrings': 'https://images.unsplash.com/photo-1629224316810-9d8805b95e76?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     'bridal': 'https://images.unsplash.com/photo-1596944924616-7b38e7cfac36?w=600&auto=format&fit=crop&q=80',
     'coins': 'https://images.unsplash.com/photo-1610375461249-f3288718c5e3?w=600&auto=format&fit=crop&q=80'
   };

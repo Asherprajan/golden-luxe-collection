@@ -96,25 +96,37 @@ const ContactForm = ({ minimal = false }: ContactFormProps) => {
                   <h4 className="font-semibold text-beige mb-4">Business Hours</h4>
                   <div className="space-y-2 text-beige/70">
                     <div className="flex justify-between">
-                      <span>Monday - Saturday</span>
-                      <span>10:00 AM - 8:00 PM</span>
+                      <span>Monday</span>
+                      <span>9:30 AM - 7:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Tuesday</span>
+                      <span>8:00 AM - 6:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Wednesday</span>
+                      <span>9:30 AM - 7:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Thursday</span>
+                      <span>9:30 AM - 7:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Friday</span>
+                      <span>9:30 AM - 7:00 PM</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span>Saturday</span>
+                      <span>9:30 AM - 7:00 PM</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Sunday</span>
-                      <span>11:00 AM - 6:00 PM</span>
+                      <span>Closed</span>
                     </div>
                   </div>
                 </div>
                 
-                <div className="mt-8">
-                  <h4 className="font-semibold text-beige mb-4">Our Location</h4>
-                  <div className="rounded-lg overflow-hidden h-60 bg-coffee-light">
-                    {/* Placeholder for Google Maps */}
-                    <div className="w-full h-full flex items-center justify-center bg-coffee-light">
-                      <p className="text-beige/50">Google Map will be embedded here</p>
-                    </div>
-                  </div>
-                </div>
+           
               </div>
             </div>
           )}

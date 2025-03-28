@@ -16,7 +16,6 @@ const Index = () => {
       <WhyChooseUs />
       <Testimonials />
       <ContactForm />
-      <Footer />
     </div>
   );
 };

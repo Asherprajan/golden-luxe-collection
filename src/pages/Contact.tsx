@@ -1,4 +1,3 @@
-
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
@@ -30,8 +29,8 @@ const Contact = () => {
               </div>
               <h3 className="heading-sm mb-3">Visit Us</h3>
               <p className="text-beige/70">
-                123 Jewelry Lane, Goldsmith Plaza<br />
-                Bangalore, Karnataka 560001
+                2VX5+PCM, Parappanangadi<br />
+                Kerala 676303
               </p>
             </div>
             
@@ -41,8 +40,7 @@ const Contact = () => {
               </div>
               <h3 className="heading-sm mb-3">Call Us</h3>
               <p className="text-beige/70">
-                +91 98765 43210<br />
-                +91 98765 43211
+                +91 9946553206<br />
               </p>
             </div>
             
@@ -63,8 +61,10 @@ const Contact = () => {
               </div>
               <h3 className="heading-sm mb-3">Business Hours</h3>
               <p className="text-beige/70">
-                Monday - Saturday: 10:00 AM - 8:00 PM<br />
-                Sunday: 11:00 AM - 6:00 PM
+                Monday, Wednesday - Friday: 9:30 AM - 7:00 PM<br />
+                Tuesday: 8:00 AM - 6:00 PM<br />
+                Saturday: 9:30 AM - 7:00 PM<br />
+                Sunday: Closed
               </p>
             </div>
           </div>
@@ -79,11 +79,17 @@ const Contact = () => {
         <div className="container mx-auto px-6">
           <div className="glass-card p-6 animate-fade-in">
             <h2 className="heading-md text-center mb-6">Find Us on Map</h2>
-            <div className="h-96 w-full bg-coffee-light rounded-lg overflow-hidden">
-              {/* Placeholder for Google Map */}
-              <div className="w-full h-full flex items-center justify-center">
-                <p className="text-beige/50">Google Map will be embedded here</p>
-              </div>
+            <div className="h-96 w-full rounded-lg overflow-hidden">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915.857182720278!2d75.85855230000001!3d11.049332599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba652ff29b71c83%3A0x2d36dbab75d05a90!2sSwarnalaya%20Jewellery!5e0!3m2!1sen!2sin!4v1743189478135!5m2!1sen!2sin" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0 }} 
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-full"
+              ></iframe>
             </div>
           </div>
         </div>
@@ -98,24 +104,24 @@ const Contact = () => {
           <div className="mt-12 max-w-3xl mx-auto">
             {[
               {
-                question: "Do you offer international shipping?",
-                answer: "Yes, we offer secure international shipping for our pieces. Shipping costs and delivery times vary based on location. Please contact our customer service for specific details about shipping to your country."
+                question: "Do you offer traditional Kerala gold designs?",
+                answer: "Yes, we specialize in authentic Kerala gold designs including traditional Palakka Mala, Manga Mala, Kasumalai, and other heritage patterns that reflect Kerala's rich cultural heritage. Our artisans are trained in traditional craftsmanship techniques."
               },
               {
-                question: "What is your return policy?",
-                answer: "We offer a 15-day return policy for all our ready-made jewelry. Custom-designed pieces, however, are non-returnable. All returns must be in their original condition with tags and certificates."
+                question: "What is the significance of Kerala's gold jewelry traditions?",
+                answer: "Kerala's gold jewelry holds deep cultural significance, often passed down through generations. Traditional designs like Thali (marriage pendant), Mulla Mottu (jasmine bud), and Minnu are integral to Kerala weddings and cultural ceremonies."
               },
               {
-                question: "How do I know the gold purity?",
-                answer: "All our gold jewelry comes with BIS Hallmark certification, guaranteeing the purity of gold as mentioned. You can verify the hallmark details through the official BIS website or app."
+                question: "Do you offer BIS hallmarked gold jewelry?",
+                answer: "All our gold jewelry comes with BIS Hallmark certification, guaranteeing the purity of gold as mentioned. Kerala is known for its preference for 22K gold, and we maintain strict quality standards in line with this tradition."
               },
               {
-                question: "Do you provide jewelry insurance?",
-                answer: "While we don't provide insurance directly, we offer detailed appraisal certificates that you can use to insure your jewelry through your preferred insurance provider."
+                question: "Can you create custom designs based on traditional Kerala motifs?",
+                answer: "Absolutely! We offer custom design services where our skilled artisans can create bespoke pieces incorporating traditional Kerala motifs with contemporary elements to suit your preferences."
               },
               {
-                question: "Can I track my order?",
-                answer: "Yes, once your order is shipped, you will receive a tracking number via email or SMS that allows you to monitor your package's journey until it reaches you."
+                question: "Do you offer gold exchange programs common in Kerala?",
+                answer: "Yes, we offer gold exchange programs where you can trade in your old gold jewelry for new pieces. We provide fair market rates based on current gold prices and deduct only minimal making charges as per Kerala jewelry market standards."
               }
             ].map((faq, index) => (
               <div 

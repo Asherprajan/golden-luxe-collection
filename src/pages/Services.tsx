@@ -31,7 +31,7 @@ const services = [
       "Quick and hassle-free process",
       "Documentation provided for all transactions"
     ],
-    image: "https://images.unsplash.com/photo-1610375461249-f3288718c5e3?w=800&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1611598935678-c88dca238fce?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     id: 3,
@@ -45,7 +45,7 @@ const services = [
       "Minor repairs and clasp reinforcement",
       "Rhodium plating for white gold pieces"
     ],
-    image: "https://images.unsplash.com/photo-1573408301828-9145ea517a3c?w=800&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1588891825655-aa526b56f805?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     id: 4,
@@ -59,7 +59,7 @@ const services = [
       "Authentication of rare and precious gemstones",
       "Documentation with photographs and specifications"
     ],
-    image: "https://images.unsplash.com/photo-1589365252845-092198ba5474?w=800&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1600119612651-0db31b3a7baa?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     id: 5,
@@ -73,7 +73,7 @@ const services = [
       "Authentication of antique and period jewelry",
       "Confidential and secure handling of your valuables"
     ],
-    image: "https://images.unsplash.com/photo-1565127044848-69eda3b107ea?w=800&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1601121141418-c1caa10a2a0b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   },
   {
     id: 6,
@@ -87,7 +87,7 @@ const services = [
       "Gift registry for special occasions",
       "Corporate gifting programs with bulk discounts"
     ],
-    image: "https://images.unsplash.com/photo-1518791841217-8f162f1e1131?w=800&auto=format&fit=crop&q=80"
+    image: "https://images.unsplash.com/photo-1513201099705-a9746e1e201f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
   }
 ];
 

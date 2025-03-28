@@ -1,4 +1,3 @@
-
 import { ArrowRight, CheckCheck, History, Users, Award } from 'lucide-react';
 import Footer from '@/components/Footer';
 
@@ -24,7 +23,7 @@ const About = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <span className="section-subtitle animate-fade-in">Our Story</span>
-            <h1 className="heading-xl mb-6 animate-fade-in">About Swarnalaya</h1>
+            <h1 className="heading-xl mb-6 animate-fade-in">About Swarnalaya Gold & Diamonds</h1>
             <p className="paragraph mb-10 max-w-2xl mx-auto animate-fade-in opacity-90">
               Discover the story behind our passion for crafting exquisite jewelry that transcends generations. 
               From our humble beginnings to becoming a trusted name in fine gold and diamond jewelry.
@@ -38,36 +37,28 @@ const About = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1 animate-fade-in">
-              <span className="block text-sm uppercase tracking-widest text-gold mb-2">Est. 1987</span>
-              <h2 className="heading-lg mb-6">A Legacy of Excellence</h2>
+              <span className="block text-sm uppercase tracking-widest text-gold mb-2">Est. 2004</span>
+              <h2 className="heading-lg mb-6">A Heritage of Excellence</h2>
               <p className="paragraph mb-5">
-                The journey of Swarnalaya began in 1987 when our founder, Mr. Rajesh Kumar, opened a small jewelry workshop 
-                with a vision to create pieces that blend traditional craftsmanship with contemporary designs.
+                For nearly two decades, Swarnalaya Gold & Diamonds in Parappanangadi, Kerala has been crafting precious moments through exquisite jewelry. What began as a small family workshop has blossomed into one of the region's most trusted names in gold and diamond jewelry.
               </p>
               <p className="paragraph mb-5">
-                What started as a modest establishment has now evolved into one of the most respected names in jewelry. 
-                Through three decades of dedication, we have perfected the art of creating timeless pieces that celebrate 
-                life's precious moments.
+                Our journey is marked by an unwavering commitment to quality, craftsmanship, and customer satisfaction. Every piece that bears the Swarnalaya name carries with it our promise of excellence and timeless beauty, rooted in the rich jewelry traditions of Kerala.
               </p>
               <p className="paragraph mb-8">
-                Today, Swarnalaya stands as a symbol of trust, quality, and exceptional craftsmanship. Our journey is a 
-                testament to our commitment to excellence and our passion for creating jewelry that becomes a part of your 
-                cherished memories.
+                Today, Swarnalaya stands as a symbol of trust, quality, and exceptional craftsmanship. Our journey is a testament to our commitment to excellence and our passion for creating jewelry that becomes a part of your cherished memories.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                 <div className="glass-card p-4 text-center">
-                  <span className="block text-gold text-3xl font-bold mb-1">35+</span>
+                  <span className="block text-gold text-3xl font-bold mb-1">20+</span>
                   <span className="text-beige/70 text-sm">Years of Excellence</span>
                 </div>
                 <div className="glass-card p-4 text-center">
                   <span className="block text-gold text-3xl font-bold mb-1">10k+</span>
                   <span className="text-beige/70 text-sm">Happy Customers</span>
                 </div>
-                <div className="glass-card p-4 text-center">
-                  <span className="block text-gold text-3xl font-bold mb-1">15+</span>
-                  <span className="text-beige/70 text-sm">Design Awards</span>
-                </div>
+             
               </div>
             </div>
             
