@@ -61,10 +61,16 @@ const ProductDetail = ({ product, onClose, materials, occasions, categoryName }:
                 )}
               </div>
               <div className="space-y-3 pt-4">
-                <button className="w-full bg-gold hover:bg-gold/90 text-coffee font-semibold py-3.5 rounded-xl transition-colors duration-300">
+                <button 
+                  onClick={() => window.location.href = '/contact?subject=Price Quote for ' + encodeURIComponent(product.name)}
+                  className="w-full bg-gold hover:bg-gold/90 text-coffee font-semibold py-3.5 rounded-xl transition-colors duration-300"
+                >
                   Request Price Quote
                 </button>
-                <button className="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3.5 rounded-xl border border-white/10 transition-colors duration-300">
+                <button 
+                  onClick={() => window.location.href = '/contact?subject=Showroom Visit for ' + encodeURIComponent(product.name)}
+                  className="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-3.5 rounded-xl border border-white/10 transition-colors duration-300"
+                >
                   Book Showroom Visit
                 </button>
               </div>
