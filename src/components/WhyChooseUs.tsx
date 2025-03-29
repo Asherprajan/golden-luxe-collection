@@ -1,6 +1,7 @@
+'use client'
 
 import { Award, Sparkles, Scale } from 'lucide-react';
-
+import GoldRateDisplay from './GoldRateDisplay';
 const features = [
   {
     icon: <Award className="w-10 h-10 text-gold" />,
@@ -41,7 +42,7 @@ const WhyChooseUs = () => {
         </div>
         
         {/* Gold Price Indicator */}
-        <div className="mt-16 glass-card p-6 animate-fade-in">
+        {/* <div className="mt-16 glass-card p-6 animate-fade-in">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="mb-4 md:mb-0">
               <h3 className="heading-sm text-gold mb-1">Today's Gold Rate</h3>
@@ -62,9 +63,13 @@ const WhyChooseUs = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
+          <GoldRateDisplay />
       </div>
+    
     </section>
+    
+
   );
 };
 

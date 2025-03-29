@@ -67,8 +67,8 @@ const ContactForm = ({ minimal = false }: ContactFormProps) => {
                     <div>
                       <h4 className="font-semibold text-beige mb-1">Our Address</h4>
                       <p className="text-beige/70">
-                        123 Jewelry Lane, Goldsmith Plaza<br />
-                        Bangalore, Karnataka 560001
+                        2VX5+PCM, Parappanangadi<br />
+                        Kerala 676303
                       </p>
                     </div>
                   </div>
@@ -77,8 +77,7 @@ const ContactForm = ({ minimal = false }: ContactFormProps) => {
                     <Phone className="text-gold flex-shrink-0 mt-1" />
                     <div>
                       <h4 className="font-semibold text-beige mb-1">Call Us</h4>
-                      <p className="text-beige/70">+91 98765 43210</p>
-                      <p className="text-beige/70">+91 98765 43211</p>
+                      <p className="text-beige/70">+91 9946553206</p>
                     </div>
                   </div>
                   

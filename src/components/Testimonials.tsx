@@ -1,28 +1,34 @@
-
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react';
 
 const testimonials = [
   {
     id: 1,
-    name: "Priya Sharma",
-    role: "Bride",
-    quote: "My bridal set from Swarnalaya made me feel like royalty on my special day. The craftsmanship was exquisite, and the team went above and beyond to ensure every piece matched perfectly.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&auto=format&fit=crop&q=80"
+    name: "Lakshmi Nair",
+    role: "Bride from Kochi",
+    quote: "My bridal set from Swarnalaya made me feel like royalty on my special day. The traditional Kerala design with a modern touch was exactly what I wanted for my wedding.",
+    image: "/rating.png"
   },
   {
     id: 2,
-    name: "Rajesh Verma",
+    name: "Anoop Menon",
     role: "Anniversary Gift",
-    quote: "I wanted something special for our 25th anniversary. The custom pendant I ordered exceeded all expectations. My wife was moved to tears when she opened it.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&auto=format&fit=crop&q=80"
+    quote: "I wanted something special with Kerala motifs for our 25th anniversary. The custom thali chain I ordered exceeded all expectations. My wife was moved to tears when she opened it.",
+    image: "/rating.png"
   },
   {
     id: 3,
-    name: "Ananya Patel",
-    role: "Regular Customer",
-    quote: "What sets Swarnalaya apart is their attention to detail and customer service. I've been shopping here for over a decade and have never been disappointed.",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80"
+    name: "Meera Kurian",
+    role: "Regular Customer from Thrissur",
+    quote: "What sets Swarnalaya apart is their authentic Kerala craftsmanship. Their palakka necklaces and traditional bangles have been part of all my family functions for over a decade.",
+    image: "/rating.png"
+  },
+  {
+    id: 4,
+    name: "Vishnu Prasad",
+    role: "First-time Customer from Kozhikode",
+    quote: "I was looking for a traditional Kerala-style karimani mala for my mother. The quality and design at Swarnalaya were unmatched. The craftsmanship truly represents our heritage.",
+    image: "/rating.png"
   }
 ];
 

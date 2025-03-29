@@ -1,116 +1,131 @@
-
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, Twitter, Youtube } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Twitter, Youtube, Mail, MapPin, Phone } from 'lucide-react';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  
   return (
-    <footer className="bg-coffee-light/50 backdrop-blur-sm pt-16 pb-8">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          <div>
-            <Link to="/" className="inline-block mb-6">
-              <span className="font-playfair text-gold text-3xl font-bold">Swarnalaya</span>
-            </Link>
-            <p className="text-beige/70 mb-6">
-              Exquisite gold and diamond jewelry crafted with precision and passion. 
-              Where tradition meets contemporary design.
+    <footer className="bg-coffee/95 backdrop-blur-sm border-t border-beige/10">
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* About Section */}
+          <div className="animate-fade-in">
+            <h3 className="heading-sm text-gold mb-4">About Swarnalaya</h3>
+            <p className="text-beige/80 mb-4">
+              Established in 2004, Swarnalaya Gold & Diamonds is a trusted name in fine jewelry, 
+              offering exquisite designs that blend traditional craftsmanship with modern elegance.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="w-9 h-9 rounded-full bg-coffee flex items-center justify-center text-beige hover:bg-gold hover:text-coffee transition-colors duration-300">
-                <Facebook size={18} />
+            <div className="flex items-center gap-3">
+              <a href="#" className="text-beige/70 hover:text-gold transition-colors">
+                <Facebook size={20} />
               </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-coffee flex items-center justify-center text-beige hover:bg-gold hover:text-coffee transition-colors duration-300">
-                <Instagram size={18} />
+              <a href="#" className="text-beige/70 hover:text-gold transition-colors">
+                <Instagram size={20} />
               </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-coffee flex items-center justify-center text-beige hover:bg-gold hover:text-coffee transition-colors duration-300">
-                <Twitter size={18} />
+              <a href="#" className="text-beige/70 hover:text-gold transition-colors">
+                <Twitter size={20} />
               </a>
-              <a href="#" className="w-9 h-9 rounded-full bg-coffee flex items-center justify-center text-beige hover:bg-gold hover:text-coffee transition-colors duration-300">
-                <Youtube size={18} />
+              <a href="#" className="text-beige/70 hover:text-gold transition-colors">
+                <Youtube size={20} />
               </a>
             </div>
           </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold text-gold mb-6">Quick Links</h3>
-            <ul className="space-y-3">
+
+          {/* Quick Links */}
+          <div className="animate-fade-in" style={{ animationDelay: '100ms' }}>
+            <h3 className="heading-sm text-gold mb-4">Quick Links</h3>
+            <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-beige/70 hover:text-gold transition-colors duration-300">Home</Link>
+                <Link to="/" className="text-beige/80 hover:text-gold transition-colors">
+                  Home
+                </Link>
               </li>
               <li>
-                <Link to="/collections" className="text-beige/70 hover:text-gold transition-colors duration-300">Collections</Link>
+                <Link to="/collections" className="text-beige/80 hover:text-gold transition-colors">
+                  Collections
+                </Link>
               </li>
               <li>
-                <Link to="/about" className="text-beige/70 hover:text-gold transition-colors duration-300">About Us</Link>
+                <Link to="/about" className="text-beige/80 hover:text-gold transition-colors">
+                  About Us
+                </Link>
               </li>
               <li>
-                <Link to="/services" className="text-beige/70 hover:text-gold transition-colors duration-300">Services</Link>
+                <Link to="/services" className="text-beige/80 hover:text-gold transition-colors">
+                  Services
+                </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-beige/70 hover:text-gold transition-colors duration-300">Contact</Link>
-              </li>
-            </ul>
-          </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold text-gold mb-6">Collections</h3>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/collections?category=necklaces" className="text-beige/70 hover:text-gold transition-colors duration-300">Necklaces</Link>
-              </li>
-              <li>
-                <Link to="/collections?category=rings" className="text-beige/70 hover:text-gold transition-colors duration-300">Rings</Link>
-              </li>
-              <li>
-                <Link to="/collections?category=bangles" className="text-beige/70 hover:text-gold transition-colors duration-300">Bangles</Link>
-              </li>
-              <li>
-                <Link to="/collections?category=earrings" className="text-beige/70 hover:text-gold transition-colors duration-300">Earrings</Link>
-              </li>
-              <li>
-                <Link to="/collections?category=bridal" className="text-beige/70 hover:text-gold transition-colors duration-300">Bridal Sets</Link>
-              </li>
-              <li>
-                <Link to="/collections?category=coins" className="text-beige/70 hover:text-gold transition-colors duration-300">Gold Coins</Link>
+                <Link to="/contact" className="text-beige/80 hover:text-gold transition-colors">
+                  Contact
+                </Link>
               </li>
             </ul>
           </div>
-          
-          <div>
-            <h3 className="text-lg font-semibold text-gold mb-6">Contact Information</h3>
-            <ul className="space-y-4">
+
+          {/* Contact Info */}
+          <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
+            <h3 className="heading-sm text-gold mb-4">Contact Info</h3>
+            <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <MapPin size={18} className="text-gold flex-shrink-0 mt-1" />
-                <span className="text-beige/70">
-                  123 Jewelry Lane, Goldsmith Plaza<br />
-                  Bangalore, Karnataka 560001
-                </span>
+                <MapPin className="flex-shrink-0 text-gold w-5 h-5 mt-1" />
+                <div className="text-beige/80">
+                  2VX5+PCM, Parappanangadi<br />
+                  Kerala 676303
+                </div>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={18} className="text-gold flex-shrink-0" />
-                <span className="text-beige/70">+91 98765 43210</span>
+                <Phone className="text-gold w-5 h-5" />
+                <a href="tel:+919946553206" className="text-beige/80 hover:text-gold">
+                  +91 9946553206
+                </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={18} className="text-gold flex-shrink-0" />
-                <span className="text-beige/70">info@swarnalaya.com</span>
+                <Mail className="text-gold w-5 h-5" />
+                <a href="mailto:info@swarnalaya.com" className="text-beige/80 hover:text-gold">
+                  info@swarnalaya.com
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <Clock className="text-gold w-5 h-5 mt-1" />
+                <div className="text-beige/80">
+                  Mon, Wed-Fri: 9:30 AM - 7:00 PM<br />
+                  Tue: 8:00 AM - 6:00 PM<br />
+                  Sat: 9:30 AM - 7:00 PM<br />
+                  Sun: Closed
+                </div>
               </li>
             </ul>
+          </div>
+
+          {/* Newsletter */}
+          <div className="animate-fade-in" style={{ animationDelay: '300ms' }}>
+            <h3 className="heading-sm text-gold mb-4">Newsletter</h3>
+            <p className="text-beige/80 mb-4">
+              Subscribe to our newsletter for exclusive offers, new collections, and jewelry care tips.
+            </p>
+            <form className="flex gap-2">
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="flex-1 px-4 py-2 bg-coffee-light border border-beige/20 rounded-lg focus:outline-none focus:border-gold text-beige"
+              />
+              <button
+                type="submit"
+                className="px-4 py-2 bg-gold text-coffee rounded-lg hover:bg-gold/90 transition-colors"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
         </div>
-        
-        <div className="border-t border-beige/10 mt-10 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-beige/60 text-sm mb-4 md:mb-0">
-              © {currentYear} Swarnalaya Gold and Diamonds. All rights reserved.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 text-sm text-beige/60">
-              <a href="#" className="hover:text-gold transition-colors duration-300">Privacy Policy</a>
-              <a href="#" className="hover:text-gold transition-colors duration-300">Terms of Service</a>
-              <a href="#" className="hover:text-gold transition-colors duration-300">Return Policy</a>
-            </div>
-          </div>
+
+        {/* Copyright */}
+        <div className="border-t border-beige/10 mt-8 pt-8 text-center text-beige/70">
+          <p>
+            &copy; {new Date().getFullYear()} Swarnalaya Gold & Diamonds. All rights reserved.
+          </p>
+          <p className="mt-1 text-sm">
+            Designed with ❤️ in Kerala
+          </p>
         </div>
       </div>
     </footer>

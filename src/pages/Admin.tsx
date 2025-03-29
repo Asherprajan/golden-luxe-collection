@@ -18,7 +18,7 @@ import {
   SidebarGroup,
   SidebarGroupLabel
 } from "@/components/ui/sidebar";
-import { LayoutDashboard, Tag, ShoppingBag, LogOut } from "lucide-react";
+import { LayoutDashboard, Tag, ShoppingBag, LogOut, Coins } from "lucide-react";
 
 const Admin = () => {
   const navigate = useNavigate();
@@ -74,6 +74,16 @@ const Admin = () => {
                     >
                       <Tag className="h-5 w-5 mr-2" />
                       <span>Categories</span>
+                    </SidebarMenuButton>  
+                  </SidebarMenuItem>
+
+                  <SidebarMenuItem>
+                    <SidebarMenuButton 
+                      isActive={activeTab === "gold"}
+                      onClick={() => setActiveTab("gold")}
+                    >
+                      <Coins className="h-5 w-5 mr-2" />
+                      <span>Gold Rates</span>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
                 </SidebarMenu>
