@@ -126,44 +126,31 @@ const About = () => {
           <span className="section-subtitle animate-fade-in">The People Behind Our Creations</span>
           <h2 className="section-title animate-fade-in">Meet Our Team</h2>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+          <div className="mt-12">
             {[
               {
                 name: "Rajesh Kumar",
-                position: "Founder & Master Craftsman",
-                image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&auto=format&fit=crop&q=80"
-              },
-              {
-                name: "Anita Sharma",
-                position: "Head Designer",
-                image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&auto=format&fit=crop&q=80"
-              },
-              {
-                name: "Vikram Patel",
-                position: "Gemologist",
-                image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&auto=format&fit=crop&q=80"
-              },
-              {
-                name: "Priya Gupta",
-                position: "Customer Experience Manager",
-                image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&auto=format&fit=crop&q=80"
+                position: "Founder & Director",
+                image: "/director.jpeg",
+                bio: "With over 25 years of experience in traditional Kerala jewelry craftsmanship, Rajesh Kumar founded Swarnalaya with a vision to preserve heritage designs while embracing modern techniques."
               }
             ].map((member, index) => (
               <div 
                 key={index} 
-                className="glass-card overflow-hidden rounded-lg animate-fade-in"
+                className="glass-card rounded-lg animate-fade-in lg:flex lg:items-stretch overflow-hidden"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="h-64 overflow-hidden">
+                <div className="h-64  lg:h-auto lg:w-1/2 overflow-hidden">
                   <img 
                     src={member.image} 
                     alt={member.name} 
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
                   />
                 </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-gold mb-1">{member.name}</h3>
-                  <p className="text-beige/70 text-sm">{member.position}</p>
+                <div className="p-6 lg:w-1/2 lg:flex lg:flex-col lg:justify-center">
+                  <h3 className="text-xl lg:text-2xl font-semibold text-gold mb-2">{member.name}</h3>
+                  <p className="text-beige/70 text-sm lg:text-base mb-4">{member.position}</p>
+                  <p className="text-beige/80 lg:text-lg">{member.bio}</p>
                 </div>
               </div>
             ))}
@@ -184,12 +171,12 @@ const About = () => {
                 </div>
                 <span className="text-beige">Bureau of Indian Standards</span>
               </div>
-              <div className="flex items-center gap-2">
+              {/* <div className="flex items-center gap-2">
                 <div className="w-16 h-16 bg-coffee rounded-full flex items-center justify-center">
                   <span className="text-gold font-bold">IGI</span>
                 </div>
                 <span className="text-beige">International Gemological Institute</span>
-              </div>
+              </div> */}
               <div className="flex items-center gap-2">
                 <div className="w-16 h-16 bg-coffee rounded-full flex items-center justify-center">
                   <span className="text-gold font-bold">GIA</span>

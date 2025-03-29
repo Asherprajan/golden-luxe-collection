@@ -10,15 +10,6 @@ interface ProductDetailProps {
 }
 
 const ProductDetail = ({ product, onClose, materials, occasions, categoryName }: ProductDetailProps) => {
-  // Format price from paise to rupees with appropriate formatting
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-IN', { 
-      style: 'currency', 
-      currency: 'INR',
-      maximumFractionDigits: 0
-    }).format(price);
-  };
-
   return (
     <div className="fixed inset-0 bg-black/90 z-50 flex items-end sm:items-center justify-center animate-fade-in-slow overscroll-none">
       <div className="relative w-full h-[85vh] sm:h-auto sm:max-h-[90vh] max-w-4xl bg-gradient-to-b from-coffee/95 to-coffee rounded-t-3xl sm:rounded-2xl overflow-hidden animate-slide-up sm:animate-scale-in">
@@ -46,9 +37,6 @@ const ProductDetail = ({ product, onClose, materials, occasions, categoryName }:
                 <h3 className="text-2xl sm:text-3xl font-semibold text-white mb-3">
                   {product.name}
                 </h3>
-                <p className="text-2xl sm:text-3xl font-bold text-gold">
-                  {formatPrice(product.price)}
-                </p>
               </div>
               <p className="text-white/70 text-base leading-relaxed">
                 {product.description || 'This exquisite piece showcases the finest craftsmanship and attention to detail that Swarnalaya is known for. Perfect for special occasions and daily wear alike.'}

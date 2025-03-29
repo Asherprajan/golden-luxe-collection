@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
@@ -30,29 +29,6 @@ const CollectionGrid = ({ limit, showHeading = true, animationDelay = false }: C
       
       return data as Category[];
     }
-  });
-  
-  const { data: categoryProductCounts, isLoading: isLoadingCounts } = useQuery({
-    queryKey: ['categoryProductCounts'],
-    queryFn: async () => {
-      const { data, error } = await supabase
-        .from('products')
-        .select('category_id, id');
-      
-      if (error) {
-        console.error('Error fetching product counts:', error);
-        throw new Error('Failed to fetch product counts');
-      }
-      
-      // Calculate counts per category
-      const counts: Record<string, number> = {};
-      data.forEach(product => {
-        counts[product.category_id] = (counts[product.category_id] || 0) + 1;
-      });
-      
-      return counts;
-    },
-    enabled: !!categories
   });
   
   // Process categories with limits if specified
@@ -106,9 +82,6 @@ const CollectionGrid = ({ limit, showHeading = true, animationDelay = false }: C
             />
             <div className="absolute inset-0 flex flex-col justify-end p-6 z-20">
               <h3 className="heading-md text-white mb-2">{category.name}</h3>
-              <p className="text-beige/90 text-sm">
-                {isLoadingCounts ? 'Loading...' : (categoryProductCounts?.[category.id] || 0)} Products
-              </p>
               <div className="w-10 h-0.5 bg-gold mt-3 transition-all duration-300 group-hover:w-16"></div>
             </div>
           </Link>

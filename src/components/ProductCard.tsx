@@ -8,15 +8,6 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, onClick, index }: ProductCardProps) => {
-  // Format price from paise to rupees with appropriate formatting
-  const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-IN', { 
-      style: 'currency', 
-      currency: 'INR',
-      maximumFractionDigits: 0
-    }).format(price);
-  };
-
   return (
     <div 
       className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden animate-fade-in shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
@@ -44,10 +35,7 @@ const ProductCard = ({ product, onClick, index }: ProductCardProps) => {
         <h3 className="font-medium text-base sm:text-lg text-white/90 line-clamp-2">
           {product.name}
         </h3>
-        <div className="flex items-center justify-between">
-          <span className="text-gold text-lg sm:text-xl font-semibold">
-            {formatPrice(product.price)}
-          </span>
+        <div className="flex items-center justify-end">
           <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
             <svg 
               className="w-4 h-4 text-gold" 
