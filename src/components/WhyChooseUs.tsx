@@ -64,7 +64,7 @@ const WhyChooseUs = () => {
             </div>
           </div>
         </div> */}
-          <GoldRateDisplay />
+          {/* <GoldRateDisplay /> */}
       </div>
     
     </section>
