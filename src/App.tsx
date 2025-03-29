@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -15,6 +14,7 @@ import AdminLogin from "./pages/AdminLogin";
 import Admin from "./pages/Admin";
 import AdminGuard from "./components/AdminGuard";
 import Footer from "./components/Footer";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +22,9 @@ const queryClient = new QueryClient();
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
   const isAdminRoute = location.pathname.startsWith("/admin");
+  
+  // Add scroll to top behavior
+  useScrollToTop();
   
   return (
     <>
