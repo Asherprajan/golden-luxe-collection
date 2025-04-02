@@ -1,75 +1,81 @@
-'use client'
+import { ArrowRight, Shield, Award, Star, Users, Clock, Gem } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
-import { Award, Sparkles, Scale } from 'lucide-react';
-import GoldRateDisplay from './GoldRateDisplay';
 const features = [
   {
-    icon: <Award className="w-10 h-10 text-gold" />,
-    title: "BIS Hallmark Assurance",
-    description: "Every piece of jewelry comes with Bureau of Indian Standards hallmarking, guaranteeing authentic gold purity and quality."
+    title: "Quality Assurance",
+    description: "We use only the finest materials and rigorous quality control to ensure every piece meets our exacting standards.",
+    icon: <Shield className="text-[#D4AF37] w-8 h-8" />
   },
   {
-    icon: <Sparkles className="w-10 h-10 text-gold" />,
-    title: "Custom Jewelry Design",
-    description: "Transform your vision into reality with our bespoke design service. Our master craftsmen bring your dream jewelry to life."
+    title: "BIS Hallmarked Gold",
+    description: "All our gold jewelry comes with BIS Hallmark certification, guaranteeing the purity of gold as mentioned.",
+    icon: <Award className="text-[#D4AF37] w-8 h-8" />
   },
   {
-    icon: <Scale className="w-10 h-10 text-gold" />,
-    title: "Transparent Pricing",
-    description: "We believe in complete transparency. Our pricing is straightforward with no hidden charges, ensuring you get the best value."
+    title: "Authentic Designs",
+    description: "Our collection features both traditional Kerala designs and contemporary styles, each crafted with cultural authenticity.",
+    icon: <Star className="text-[#D4AF37] w-8 h-8" />
+  },
+  {
+    title: "Expert Artisans",
+    description: "Our jewelry is crafted by skilled artisans with generations of experience in traditional jewelry making techniques.",
+    icon: <Users className="text-[#D4AF37] w-8 h-8" />
+  },
+  {
+    title: "Lifetime Support",
+    description: "We offer lifetime maintenance and support for all our jewelry, ensuring your pieces remain as beautiful as the day you bought them.",
+    icon: <Clock className="text-[#D4AF37] w-8 h-8" />
+  },
+  {
+    title: "Ethical Sourcing",
+    description: "We are committed to ethical sourcing practices, ensuring our materials come from responsible and conflict-free sources.",
+    icon: <Gem className="text-[#D4AF37] w-8 h-8" />
   }
 ];
 
 const WhyChooseUs = () => {
   return (
-    <section className="section-padding bg-coffee-light">
-      <div className="container mx-auto">
-        <span className="section-subtitle animate-fade-in">Why Choose Us</span>
-        <h2 className="section-title animate-fade-in">The Swarnalaya Difference</h2>
+    <section className="py-20 md:py-28 relative overflow-hidden bg-[#F8F7F4]">
+      {/* Decorative light elements */}
+      <div className="absolute right-0 top-0 w-[800px] h-[800px] rounded-full bg-[#D4AF37]/5 blur-[120px] opacity-60"></div>
+      <div className="absolute -left-40 bottom-0 w-[600px] h-[600px] rounded-full bg-[#D4AF37]/8 blur-[100px] opacity-70"></div>
+      
+      <div className="container mx-auto px-6 relative">
+        <div className="text-center mb-12">
+          <div className="inline-block mb-3">
+            <span className="text-[#D4AF37] font-medium tracking-widest uppercase text-sm border-b border-[#D4AF37]/30 pb-1 inline-block">Why Choose Us</span>
+          </div>
+          <h2 className="text-4xl md:text-5xl text-gray-800 mb-8 leading-tight font-serif">
+            The Swarnalaya <span className="italic">Difference</span>
+          </h2>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10">
           {features.map((feature, index) => (
             <div 
               key={index} 
-              className="glass-card p-8 flex flex-col items-center text-center animate-fade-in"
+              className="bg-white rounded-lg p-8 flex flex-col items-center text-center shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 animate-fade-in"
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="mb-5 p-3 rounded-full bg-coffee/50 backdrop-blur-sm">{feature.icon}</div>
-              <h3 className="heading-sm mb-4 text-beige">{feature.title}</h3>
-              <p className="text-beige/80">{feature.description}</p>
+              <div className="mb-5 p-3 rounded-full bg-[#D4AF37]/10">{feature.icon}</div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-4">{feature.title}</h3>
+              <p className="text-gray-600">{feature.description}</p>
             </div>
           ))}
         </div>
         
-        {/* Gold Price Indicator */}
-        {/* <div className="mt-16 glass-card p-6 animate-fade-in">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="mb-4 md:mb-0">
-              <h3 className="heading-sm text-gold mb-1">Today's Gold Rate</h3>
-              <p className="text-sm text-beige/80">Last updated: May 10, 2023 at 10:30 AM</p>
-            </div>
-            <div className="flex flex-wrap justify-center gap-4">
-              <div className="bg-coffee p-4 rounded-lg text-center min-w-[120px]">
-                <span className="block text-sm text-beige/70">22K Gold</span>
-                <span className="block text-xl font-semibold text-gold">₹5,380/g</span>
-              </div>
-              <div className="bg-coffee p-4 rounded-lg text-center min-w-[120px]">
-                <span className="block text-sm text-beige/70">24K Gold</span>
-                <span className="block text-xl font-semibold text-gold">₹5,820/g</span>
-              </div>
-              <div className="bg-coffee p-4 rounded-lg text-center min-w-[120px]">
-                <span className="block text-sm text-beige/70">18K Gold</span>
-                <span className="block text-xl font-semibold text-gold">₹4,430/g</span>
-              </div>
-            </div>
-          </div>
-        </div> */}
-          {/* <GoldRateDisplay /> */}
+        <div className="text-center mt-12">
+          <Link 
+            to="/about" 
+            className="inline-flex items-center gap-2 text-[#D4AF37] hover:text-[#D4AF37]/80 transition-all duration-300 group border-b border-transparent hover:border-[#D4AF37]/40 pb-1"
+          >
+            <span>Learn More About Our Values</span>
+            <ArrowRight size={16} className="group-hover:translate-x-1.5 transition-transform duration-300" />
+          </Link>
+        </div>
       </div>
-    
     </section>
-    
-
   );
 };
 

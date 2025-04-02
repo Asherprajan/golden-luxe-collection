@@ -8,44 +8,40 @@ interface ProductCardProps {
 }
 
 const ProductCard = ({ product, onClick, index }: ProductCardProps) => {
+  // Format price from paise to rupees with appropriate formatting
+  const formatPrice = (price: number) => {
+    return new Intl.NumberFormat('en-IN', { 
+      style: 'currency', 
+      currency: 'INR',
+      maximumFractionDigits: 0
+    }).format(price);
+  };
+
   return (
     <div 
-      className="group relative bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden animate-fade-in shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
+      className="bg-white overflow-hidden rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 animate-fade-in group"
       style={{ animationDelay: `${index * 100}ms` }}
       onClick={() => onClick(product.id)}
     >
-      {/* Image Container */}
-      <div className="aspect-[4/5] overflow-hidden relative">
+      <div className="aspect-square overflow-hidden relative">
         <img 
           src={product.image_url} 
           alt={product.name} 
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        {/* Floating Material Tag */}
-        {product.material && (
-          <span className="absolute top-3 right-3 text-xs px-3 py-1.5 bg-black/40 backdrop-blur-sm rounded-full text-white/90 font-medium">
-            {product.material}
-          </span>
-        )}
+        {/* Optional overlay on hover */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
       </div>
-
-      {/* Content */}
-      <div className="p-4 space-y-3">
-        <h3 className="font-medium text-base sm:text-lg text-white/90 line-clamp-2">
-          {product.name}
-        </h3>
-        <div className="flex items-center justify-end">
-          <div className="w-8 h-8 rounded-full bg-gold/10 flex items-center justify-center group-hover:bg-gold/20 transition-colors">
-            <svg 
-              className="w-4 h-4 text-gold" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </div>
+      <div className="p-4">
+        <h3 className="font-semibold text-gray-800 mb-2 line-clamp-2">{product.name}</h3>
+        <div className="flex justify-between items-center">
+          <span className="text-[#D4AF37] font-medium">{formatPrice(product.price)}</span>
+          {product.material && (
+            <span className="text-xs px-3 py-1 bg-gray-100 rounded-full text-gray-600">
+              {product.material}
+            </span>
+          )}
         </div>
       </div>
     </div>

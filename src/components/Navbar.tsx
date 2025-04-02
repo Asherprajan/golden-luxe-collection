@@ -1,85 +1,161 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ShoppingBag, User } from 'lucide-react';
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
   
-  const isActive = (path: string) => location.pathname === path;
+  // Check if the current route is active
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
   
+  // Handle scroll event to change navbar appearance
   useEffect(() => {
-    // Close mobile menu when route changes
-    setIsOpen(false);
-  }, [location]);
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   return (
-      <header className="fixed top-0 left-0 w-full z-50 transition-all duration-300 py-5 bg-blur bg-coffee/95">
-      <div className="container mx-auto px-6 flex justify-between items-center">
-        <Link 
-          to="/" 
-          className="flex items-center gap-2 transition-transform hover:scale-[1.02]"
-        >
-          <span className="font-playfair text-gold text-2xl md:text-3xl font-bold">Swarnalaya</span>
-        </Link>
-        
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-10">
-          <Link to="/" className={`nav-link ${isActive('/') ? 'nav-link-active' : ''}`}>
-            Home
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white shadow-md py-2' : 'bg-white/80 backdrop-blur-sm py-4'
+      }`}
+    >
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <img 
+              src="/logo.png" 
+              alt="Swarnalaya Gold & Diamonds" 
+              className="h-10 sm:h-12"
+            />
           </Link>
-          <Link to="/collections" className={`nav-link ${isActive('/collections') ? 'nav-link-active' : ''}`}>
-            Collections
-          </Link>
-          <Link to="/about" className={`nav-link ${isActive('/about') ? 'nav-link-active' : ''}`}>
-            About Us
-          </Link>
-          <Link to="/services" className={`nav-link ${isActive('/services') ? 'nav-link-active' : ''}`}>
-            Services
-          </Link>
-          <Link to="/contact" className={`nav-link ${isActive('/contact') ? 'nav-link-active' : ''}`}>
-            Contact
-          </Link>
-        </nav>
-        
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-beige" 
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-      
-      {/* Mobile Navigation */}
-      <div 
-        className={`md:hidden fixed inset-0 z-40 bg-coffee-light/98 backdrop-blur-lg transition-all duration-300 transform ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
-        }`}
-        style={{
-          backdropFilter: 'blur(10px)',
-          backgroundColor: 'rgba(0, 0, 0, 0.5)'
-        }}
-      >
-        <div className="flex flex-col items-center justify-center h-full space-y-8 text-center">
-          <Link to="/" className={`text-2xl ${isActive('/') ? 'text-gold' : 'text-beige'}`}>
-            Home
-          </Link>
-          <Link to="/collections" className={`text-2xl ${isActive('/collections') ? 'text-gold' : 'text-beige'}`}>
-            Collections
-          </Link>
-          <Link to="/about" className={`text-2xl ${isActive('/about') ? 'text-gold' : 'text-beige'}`}>
-            About Us
-          </Link>
-          <Link to="/services" className={`text-2xl ${isActive('/services') ? 'text-gold' : 'text-beige'}`}>
-            Services
-          </Link>
-          <Link to="/contact" className={`text-2xl ${isActive('/contact') ? 'text-gold' : 'text-beige'}`}>
-            Contact
-          </Link>
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            <Link 
+              to="/" 
+              className={`text-gray-700 hover:text-[#D4AF37] transition-colors ${
+                isActive('/') ? 'text-[#D4AF37] font-medium' : ''
+              }`}
+            >
+              Home
+            </Link>
+            <Link 
+              to="/collections" 
+              className={`text-gray-700 hover:text-[#D4AF37] transition-colors ${
+                isActive('/collections') ? 'text-[#D4AF37] font-medium' : ''
+              }`}
+            >
+              Collections
+            </Link>
+            <Link 
+              to="/about" 
+              className={`text-gray-700 hover:text-[#D4AF37] transition-colors ${
+                isActive('/about') ? 'text-[#D4AF37] font-medium' : ''
+              }`}
+            >
+              About
+            </Link>
+            <Link 
+              to="/services" 
+              className={`text-gray-700 hover:text-[#D4AF37] transition-colors ${
+                isActive('/services') ? 'text-[#D4AF37] font-medium' : ''
+              }`}
+            >
+              Services
+            </Link>
+            <Link 
+              to="/contact" 
+              className={`text-gray-700 hover:text-[#D4AF37] transition-colors ${
+                isActive('/contact') ? 'text-[#D4AF37] font-medium' : ''
+              }`}
+            >
+              Contact
+            </Link>
+          </nav>
+          
+          {/* Action Buttons */}
+          <div className="flex items-center space-x-4">
+          
+            
+            {/* Mobile Menu Button */}
+            <button 
+              className="md:hidden text-gray-700 hover:text-[#D4AF37]"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
       </div>
+      
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-200 animate-fade-in">
+          <div className="container mx-auto px-4 py-4">
+            <nav className="flex flex-col space-y-4">
+              <Link 
+                to="/" 
+                className={`py-2 text-gray-700 hover:text-[#D4AF37] ${
+                  isActive('/') ? 'text-[#D4AF37] font-medium' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link 
+                to="/collections" 
+                className={`py-2 text-gray-700 hover:text-[#D4AF37] ${
+                  isActive('/collections') ? 'text-[#D4AF37] font-medium' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Collections
+              </Link>
+              <Link 
+                to="/about" 
+                className={`py-2 text-gray-700 hover:text-[#D4AF37] ${
+                  isActive('/about') ? 'text-[#D4AF37] font-medium' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link 
+                to="/services" 
+                className={`py-2 text-gray-700 hover:text-[#D4AF37] ${
+                  isActive('/services') ? 'text-[#D4AF37] font-medium' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Services
+              </Link>
+              <Link 
+                to="/contact" 
+                className={`py-2 text-gray-700 hover:text-[#D4AF37] ${
+                  isActive('/contact') ? 'text-[#D4AF37] font-medium' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </nav>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

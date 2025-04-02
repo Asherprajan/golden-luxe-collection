@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { MapPin, Phone, Mail, Send } from "lucide-react";
+import { useState, useEffect } from "react";
+import { MapPin, Phone, Mail, Send, ArrowRight } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Skeleton } from "@/components/ui/skeleton";
 
 interface ContactFormProps {
   minimal?: boolean;
@@ -35,6 +36,7 @@ type ContactFormValues = z.infer<typeof contactFormSchema>;
 const ContactForm = ({ minimal = false }: ContactFormProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -81,63 +83,72 @@ const ContactForm = ({ minimal = false }: ContactFormProps) => {
   };
 
   return (
-    <section className={minimal ? "" : "section-padding"}>
-      {!minimal && (
-        <>
-          <span className="section-subtitle animate-fade-in">Get In Touch</span>
-          <h2 className="section-title animate-fade-in">Contact Us</h2>
-        </>
-      )}
+    <section className="py-20 md:py-28 relative overflow-hidden bg-white">
+      {/* Decorative elements */}
+      <div className="absolute right-0 top-0 w-[800px] h-[800px] rounded-full bg-[#D4AF37]/5 blur-[120px] opacity-60"></div>
+      <div className="absolute -left-40 bottom-0 w-[600px] h-[600px] rounded-full bg-[#D4AF37]/8 blur-[100px] opacity-70"></div>
+      
+      <div className="container mx-auto px-6 relative">
+        {!minimal && (
+          <div className="text-center mb-12">
+            <div className="inline-block mb-3">
+              <span className="text-[#D4AF37] font-medium tracking-widest uppercase text-sm border-b border-[#D4AF37]/30 pb-1">
+                Get In Touch
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl text-gray-800 mb-8 leading-tight font-bold">
+              Contact <span className="text-[#D4AF37]">Us</span>
+            </h2>
+          </div>
+        )}
 
-      <div className={`container mx-auto ${minimal ? "" : "mt-12"}`}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
           {!minimal && (
             <div className="animate-fade-in">
-              <div className="glass-card p-8 h-full">
-                <h3 className="heading-md mb-6 text-gold">
+              <div className="bg-white p-8 h-full shadow-lg rounded-lg border border-gray-200">
+                <h3 className="text-2xl font-bold text-gray-800 mb-6">
                   Visit Our Showroom
                 </h3>
 
                 <div className="space-y-6">
                   <div className="flex items-start gap-4">
-                    <MapPin className="text-gold flex-shrink-0 mt-1" />
+                    <MapPin className="text-[#D4AF37] flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-beige mb-1">
+                      <h4 className="font-semibold text-gray-700 mb-1">
                         Our Address
                       </h4>
-                      <p className="text-beige/70">
-                        2VX5+PCM, Parappanangadi
-                        <br />
+                      <p className="text-gray-600">
+                        2VX5+PCM, Parappanangadi<br />
                         Kerala 676303
                       </p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <Phone className="text-gold flex-shrink-0 mt-1" />
+                    <Phone className="text-[#D4AF37] flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-beige mb-1">Call Us</h4>
-                      <p className="text-beige/70">+91 9876543210</p>
+                      <h4 className="font-semibold text-gray-700 mb-1">Call Us</h4>
+                      <p className="text-gray-600">+91 9876543210</p>
                     </div>
                   </div>
 
                   <div className="flex items-start gap-4">
-                    <Mail className="text-gold flex-shrink-0 mt-1" />
+                    <Mail className="text-[#D4AF37] flex-shrink-0 mt-1" />
                     <div>
-                      <h4 className="font-semibold text-beige mb-1">
+                      <h4 className="font-semibold text-gray-700 mb-1">
                         Email Us
                       </h4>
-                      <p className="text-beige/70">info@swarnalaya.com</p>
-                      <p className="text-beige/70">support@swarnalaya.com</p>
+                      <p className="text-gray-600">info@swarnalaya.com</p>
+                      <p className="text-gray-600">support@swarnalaya.com</p>
                     </div>
                   </div>
                 </div>
 
                 <div className="mt-8">
-                  <h4 className="font-semibold text-beige mb-4">
+                  <h4 className="font-semibold text-gray-700 mb-4">
                     Business Hours
                   </h4>
-                  <div className="space-y-2 text-beige/70">
+                  <div className="space-y-2 text-gray-600">
                     <div className="flex justify-between">
                       <span>Monday</span>
                       <span>9:30 AM - 7:00 PM</span>
@@ -164,7 +175,7 @@ const ContactForm = ({ minimal = false }: ContactFormProps) => {
                     </div>
                     <div className="flex justify-between">
                       <span>Sunday</span>
-                      <span>Closed</span>
+                      <span className="text-red-500">Closed</span>
                     </div>
                   </div>
                 </div>
@@ -173,41 +184,42 @@ const ContactForm = ({ minimal = false }: ContactFormProps) => {
           )}
 
           <div className="animate-fade-in">
-            <div className={`glass-card p-8 ${minimal ? "h-auto" : "h-full"}`}>
-              <h3 className="heading-md mb-6 text-gold">Send Us a Message</h3>
+            <div className={`bg-white p-8 ${minimal ? "h-auto" : "h-full"} shadow-lg rounded-lg border border-gray-200`}>
+              <h3 className="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h3>
 
               {submitted ? (
                 <div className="flex flex-col items-center justify-center text-center py-12">
-                  <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mb-4 animate-pulse">
-                    <Send className="text-gold" />
+                  <div className="w-16 h-16 bg-[#D4AF37]/20 rounded-full flex items-center justify-center mb-4 animate-pulse">
+                    <Send className="text-[#D4AF37]" />
                   </div>
-                  <h4 className="heading-sm mb-2">Message Sent!</h4>
-                  <p className="text-beige/70">
+                  <h4 className="text-xl font-bold mb-2 text-gray-800">Message Sent!</h4>
+                  <p className="text-gray-600">
                     Thank you for reaching out. We'll get back to you shortly.
                   </p>
+                  <div className="flex items-center gap-2 text-[#D4AF37] hover:text-[#C09A2F] transition-all duration-300 mt-6 group cursor-pointer">
+                    <span className="text-sm font-medium">Return to Home</span>
+                    <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+                  </div>
                 </div>
               ) : (
                 <Form {...form}>
-                  <form
-                    onSubmit={form.handleSubmit(onSubmit)}
-                    className="space-y-6"
-                  >
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
                     <FormField
                       control={form.control}
                       name="name"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-beige">
+                          <FormLabel className="text-gray-700">
                             Your Name
                           </FormLabel>
                           <FormControl>
                             <Input
                               {...field}
-                              className="bg-coffee-light border-beige/20 text-beige focus:border-gold focus:ring-gold"
+                              className="bg-white border-gray-200 text-gray-800 focus:border-[#D4AF37] focus:ring-[#D4AF37]"
                               placeholder="John Doe"
                             />
                           </FormControl>
-                          <FormMessage className="text-red-400" />
+                          <FormMessage className="text-red-500" />
                         </FormItem>
                       )}
                     />
@@ -218,18 +230,18 @@ const ContactForm = ({ minimal = false }: ContactFormProps) => {
                         name="email"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-beige">
+                            <FormLabel className="text-gray-700">
                               Email Address
                             </FormLabel>
                             <FormControl>
                               <Input
                                 {...field}
                                 type="email"
-                                className="bg-coffee-light border-beige/20 text-beige focus:border-gold focus:ring-gold"
+                                className="bg-white border-gray-200 text-gray-800 focus:border-[#D4AF37] focus:ring-[#D4AF37]"
                                 placeholder="john@example.com"
                               />
                             </FormControl>
-                            <FormMessage className="text-red-400" />
+                            <FormMessage className="text-red-500" />
                           </FormItem>
                         )}
                       />
@@ -239,18 +251,18 @@ const ContactForm = ({ minimal = false }: ContactFormProps) => {
                         name="phone"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-beige">
+                            <FormLabel className="text-gray-700">
                               Phone Number
                             </FormLabel>
                             <FormControl>
                               <Input
                                 {...field}
                                 type="tel"
-                                className="bg-coffee-light border-beige/20 text-beige focus:border-gold focus:ring-gold"
+                                className="bg-white border-gray-200 text-gray-800 focus:border-[#D4AF37] focus:ring-[#D4AF37]"
                                 placeholder="+91 98765 43210"
                               />
                             </FormControl>
-                            <FormMessage className="text-red-400" />
+                            <FormMessage className="text-red-500" />
                           </FormItem>
                         )}
                       />
@@ -261,18 +273,18 @@ const ContactForm = ({ minimal = false }: ContactFormProps) => {
                       name="message"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-beige">
+                          <FormLabel className="text-gray-700">
                             Your Message
                           </FormLabel>
                           <FormControl>
                             <Textarea
                               {...field}
-                              className="bg-coffee-light border-beige/20 text-beige focus:border-gold focus:ring-gold resize-none"
+                              className="bg-white border-gray-200 text-gray-800 focus:border-[#D4AF37] focus:ring-[#D4AF37] resize-none"
                               placeholder="How can we help you?"
                               rows={5}
                             />
                           </FormControl>
-                          <FormMessage className="text-red-400" />
+                          <FormMessage className="text-red-500" />
                         </FormItem>
                       )}
                     />
@@ -280,13 +292,13 @@ const ContactForm = ({ minimal = false }: ContactFormProps) => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className={`button-primary w-full flex items-center justify-center gap-2 ${
+                      className={`w-full bg-[#D4AF37] hover:bg-[#C09A2F] text-white font-semibold py-3.5 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 ${
                         isSubmitting ? "opacity-70 cursor-not-allowed" : ""
                       }`}
                     >
                       {isSubmitting ? (
                         <>
-                          <span className="animate-spin h-4 w-4 border-2 border-coffee border-t-transparent rounded-full"></span>
+                          <span className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full"></span>
                           Sending...
                         </>
                       ) : (

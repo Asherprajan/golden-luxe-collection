@@ -70,17 +70,17 @@ const GoldRateDisplay = () => {
 
   if (isLoading) {
     return (
-      <div className="mt-16 glass-card p-6 animate-fade-in">
+      <div className="mt-16 bg-white p-6 rounded-lg shadow-sm border border-gray-200 animate-fade-in">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <h3 className="heading-sm text-gold mb-1">Today's Gold Rate</h3>
-            <p className="text-sm text-beige/80">Loading...</p>
+            <h3 className="text-xl font-semibold text-[#D4AF37] mb-1">Today's Gold Rate</h3>
+            <p className="text-sm text-gray-500">Loading...</p>
           </div>
           <div className="flex flex-wrap justify-center gap-4">
             {[1, 2, 3].map((i) => (
-              <div key={i} className="bg-coffee p-4 rounded-lg text-center min-w-[120px] animate-pulse">
-                <div className="h-4 w-16 bg-beige/20 rounded mx-auto mb-2"></div>
-                <div className="h-6 w-20 bg-beige/20 rounded mx-auto"></div>
+              <div key={i} className="bg-gray-100 p-4 rounded-lg text-center min-w-[120px] animate-pulse">
+                <div className="h-4 w-16 bg-gray-200 rounded mx-auto mb-2"></div>
+                <div className="h-6 w-20 bg-gray-200 rounded mx-auto"></div>
               </div>
             ))}
           </div>
@@ -91,8 +91,8 @@ const GoldRateDisplay = () => {
 
   if (error && rates.length === 0) {
     return (
-      <div className="mt-16 glass-card p-6 animate-fade-in">
-        <div className="text-center text-beige/70">
+      <div className="mt-16 bg-white p-6 rounded-lg shadow-sm border border-gray-200 animate-fade-in">
+        <div className="text-center text-gray-500">
           <p>{error}</p>
         </div>
       </div>
@@ -100,23 +100,23 @@ const GoldRateDisplay = () => {
   }
 
   return (
-    <div className="mt-16 glass-card p-6 animate-fade-in">
+    <div className="mt-16 bg-white p-6 rounded-lg shadow-sm border border-gray-200 animate-fade-in">
       <div className="flex flex-col md:flex-row justify-between items-center">
         <div className="mb-4 md:mb-0">
-          <h3 className="heading-sm text-gold mb-1">Today's Gold Rate</h3>
-          <p className="text-sm text-beige/80">
+          <h3 className="text-xl font-semibold text-[#D4AF37] mb-1">Today's Gold Rate</h3>
+          <p className="text-sm text-gray-500">
             Last updated: {rates[0]?.lastUpdated}
           </p>
         </div>
         <div className="flex flex-wrap justify-center gap-4">
           {rates.map((rate, index) => (
-            <div key={index} className="bg-coffee p-4 rounded-lg text-center min-w-[120px]">
-              <span className="block text-sm text-beige/70">{rate.purity}</span>
+            <div key={index} className="bg-[#F8F7F4] p-4 rounded-lg text-center min-w-[120px] shadow-sm border border-gray-200">
+              <span className="block text-sm text-gray-500">{rate.purity}</span>
               <div className="flex items-center justify-center gap-1">
-                <span className="block text-xl font-semibold text-gold">
+                <span className="block text-xl font-semibold text-[#D4AF37]">
                   ₹{rate.rate.toLocaleString()}/g
                 </span>
-                <span className={`flex items-center text-sm ${rate.change >= 0 ? 'text-green-400' : 'text-red-400'}`}>
+                <span className={`flex items-center text-sm ${rate.change >= 0 ? 'text-green-500' : 'text-red-500'}`}>
                   {rate.change >= 0 ? <ArrowUp size={14} /> : <ArrowDown size={14} />}
                   {Math.abs(rate.change)}%
                 </span>

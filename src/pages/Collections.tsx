@@ -131,34 +131,48 @@ const Collections = () => {
         description="Explore our wide range of gold and diamond jewelry collections. Find the perfect piece for every occasion."
         image="https://swarnalaya.com/og-collections.jpg"
       />
-      <div className="min-h-screen pt-20">
-        {/* Hero Section */}
-        <section className="bg-coffee-light py-12 md:py-24">
-          <div className="container mx-auto px-4 sm:px-6">
+      <div className="min-h-screen pt-20 bg-white">
+        {/* Hero Section - Light Theme */}
+        <section className="relative py-16 md:py-24 overflow-hidden bg-[#F8F7F4]">
+          {/* Background with overlay */}
+          <div className="absolute inset-0 z-0">
+            <div
+              className="absolute inset-0 bg-black/5"
+              style={{
+                backgroundImage: `url('https://images.unsplash.com/photo-1600262302726-7f1e1e8d1037?w=1920&auto=format&fit=crop&q=80')`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                opacity: 0.15,
+              }}
+            />
+          </div>
+          
+          <div className="container mx-auto px-4 sm:px-6 relative z-10">
             <div className="max-w-3xl mx-auto text-center">
-              <span className="section-subtitle animate-fade-in">Our Products</span>
-              <h1 className="heading-xl mb-4 sm:mb-6 animate-fade-in">Jewelry Collections</h1>
-              <p className="paragraph mb-6 sm:mb-8 max-w-2xl mx-auto animate-fade-in opacity-90">
+              <span className="text-[#D4AF37] text-sm font-medium uppercase tracking-wider animate-fade-in">Our Products</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 sm:mb-6 animate-fade-in">Jewelry Collections</h1>
+              <p className="text-gray-600 mb-6 sm:mb-8 max-w-2xl mx-auto animate-fade-in">
                 Explore our exquisite range of handcrafted gold and diamond jewelry. 
                 Each piece tells a story of tradition, elegance, and timeless beauty.
               </p>
               
-              {/* Search Bar */}
+              {/* Search Bar - Light Theme */}
               <div className="relative max-w-xl mx-auto animate-fade-in">
                 <input
                   type="text"
                   placeholder="Search jewelry..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full py-2.5 sm:py-3 px-4 sm:px-5 pl-10 sm:pl-12 bg-coffee border border-beige/20 rounded-lg focus:outline-none focus:border-gold focus:ring-1 focus:ring-gold transition-colors text-beige text-sm sm:text-base"
+                  className="w-full py-3 px-5 pl-12 bg-white border border-gray-200 rounded-lg focus:outline-none focus:border-[#D4AF37] focus:ring-1 focus:ring-[#D4AF37] transition-colors text-gray-700 shadow-sm"
                 />
-                <Search className="absolute left-3 sm:left-4 top-1/2 transform -translate-y-1/2 text-beige/60" size={16} />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                 {searchQuery && (
                   <button
                     onClick={() => setSearchQuery("")}
-                    className="absolute right-3 sm:right-4 top-1/2 transform -translate-y-1/2 text-beige/60 hover:text-gold"
+                    className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-[#D4AF37]"
                   >
-                    <X size={16} />
+                    <X size={18} />
                   </button>
                 )}
               </div>
@@ -166,13 +180,13 @@ const Collections = () => {
           </div>
         </section>
         
-        <section className="py-8 sm:py-12 md:py-16">
+        <section className="py-12 sm:py-16 md:py-20 bg-white">
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="flex flex-col lg:flex-row gap-6 sm:gap-8">
-              {/* Mobile Filter Toggle */}
-              <div className="lg:hidden mb-4">
+            <div className="flex flex-col lg:flex-row gap-8">
+              {/* Mobile Filter Toggle - Light Theme */}
+              <div className="lg:hidden mb-6">
                 <button
-                  className="flex items-center gap-2 px-4 py-2 border border-beige/20 rounded-lg text-beige hover:border-gold text-sm"
+                  className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg text-gray-700 hover:border-[#D4AF37] bg-white shadow-sm"
                   onClick={() => setShowFilters(!showFilters)}
                 >
                   <Filter size={16} />
@@ -180,36 +194,36 @@ const Collections = () => {
                 </button>
               </div>
               
-              {/* Filters Sidebar */}
+              {/* Filters Sidebar - Light Theme */}
               <div 
-                className={`lg:w-64 flex-shrink-0 ${
+                className={`lg:w-72 flex-shrink-0 ${
                   showFilters ? 'block' : 'hidden lg:block'
                 }`}
               >
-                <div className="glass-card p-4 sm:p-6 sticky top-24">
-                  <h3 className="heading-sm mb-4 sm:mb-6 text-gold">Filters</h3>
+                <div className="bg-[#F8F7F4] p-6 sticky top-24 border border-gray-200 rounded-lg shadow-sm">
+                  <h3 className="text-xl font-semibold text-gray-800 mb-6">Refine Your Search</h3>
                   
                   {/* Category Filter */}
-                  <div className="mb-4 sm:mb-6">
-                    <h4 className="font-semibold mb-2 sm:mb-3 text-beige text-sm sm:text-base">Category</h4>
+                  <div className="mb-6">
+                    <h4 className="font-medium mb-3 text-gray-700">Category</h4>
                     {categoriesLoading ? (
                       <div className="space-y-2">
                         {[1, 2, 3, 4].map((i) => (
-                          <Skeleton key={i} className="h-5 sm:h-6 w-full" />
+                          <Skeleton key={i} className="h-6 w-full bg-gray-200" />
                         ))}
                       </div>
                     ) : (
-                      <div className="space-y-1.5 sm:space-y-2">
+                      <div className="space-y-2.5">
                         {categoryOptions.map((category) => (
-                          <label key={category.value} className="flex items-center gap-2 cursor-pointer">
+                          <label key={category.value} className="flex items-center gap-3 cursor-pointer hover:text-[#D4AF37] transition-colors py-1">
                             <input
                               type="radio"
                               name="category"
                               checked={selectedCategory === category.value}
                               onChange={() => setSelectedCategory(category.value)}
-                              className="form-radio text-gold"
+                              className="form-radio text-[#D4AF37] h-4 w-4 border-gray-300"
                             />
-                            <span className="text-beige/80 text-sm sm:text-base">{category.label}</span>
+                            <span className="text-gray-600">{category.label}</span>
                           </label>
                         ))}
                       </div>
@@ -217,44 +231,44 @@ const Collections = () => {
                   </div>
                   
                   {/* Material Filter */}
-                  <div className="mb-4 sm:mb-6">
-                    <h4 className="font-semibold mb-2 sm:mb-3 text-beige text-sm sm:text-base">Material</h4>
-                    <div className="space-y-1.5 sm:space-y-2">
+                  <div className="mb-6">
+                    <h4 className="font-medium mb-3 text-gray-700">Material</h4>
+                    <div className="space-y-2.5">
                       {materials.map((material) => (
-                        <label key={material.value} className="flex items-center gap-2 cursor-pointer">
+                        <label key={material.value} className="flex items-center gap-3 cursor-pointer hover:text-[#D4AF37] transition-colors py-1">
                           <input
                             type="radio"
                             name="material"
                             checked={selectedMaterial === material.value}
                             onChange={() => setSelectedMaterial(material.value)}
-                            className="form-radio text-gold"
+                            className="form-radio text-[#D4AF37] h-4 w-4 border-gray-300"
                           />
-                          <span className="text-beige/80 text-sm sm:text-base">{material.label}</span>
+                          <span className="text-gray-600">{material.label}</span>
                         </label>
                       ))}
                     </div>
                   </div>
                   
                   {/* Occasion Filter */}
-                  <div className="mb-4 sm:mb-6">
-                    <h4 className="font-semibold mb-2 sm:mb-3 text-beige text-sm sm:text-base">Occasion</h4>
-                    <div className="space-y-1.5 sm:space-y-2">
+                  <div className="mb-8">
+                    <h4 className="font-medium mb-3 text-gray-700">Occasion</h4>
+                    <div className="space-y-2.5">
                       {occasions.map((occasion) => (
-                        <label key={occasion.value} className="flex items-center gap-2 cursor-pointer">
+                        <label key={occasion.value} className="flex items-center gap-3 cursor-pointer hover:text-[#D4AF37] transition-colors py-1">
                           <input
                             type="radio"
                             name="occasion"
                             checked={selectedOccasion === occasion.value}
                             onChange={() => setSelectedOccasion(occasion.value)}
-                            className="form-radio text-gold"
+                            className="form-radio text-[#D4AF37] h-4 w-4 border-gray-300"
                           />
-                          <span className="text-beige/80 text-sm sm:text-base">{occasion.label}</span>
+                          <span className="text-gray-600">{occasion.label}</span>
                         </label>
                       ))}
                     </div>
                   </div>
                   
-                  {/* Reset Filters */}
+                  {/* Reset Filters - Light Theme */}
                   <button
                     onClick={() => {
                       setSelectedCategory("all");
@@ -262,19 +276,20 @@ const Collections = () => {
                       setSelectedOccasion("all");
                       setSearchQuery("");
                     }}
-                    className="w-full py-2 px-4 border border-gold text-gold rounded-md hover:bg-gold hover:text-coffee transition-colors duration-300 text-sm sm:text-base"
+                    className="w-full py-3 px-4 bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-[#D4AF37] hover:text-white hover:border-[#D4AF37] transition-colors duration-300 flex items-center justify-center gap-2 shadow-sm"
                   >
-                    Reset Filters
+                    <span>Reset All Filters</span>
+                    <X size={16} />
                   </button>
                 </div>
               </div>
               
-              {/* Products Grid */}
+              {/* Products Grid - Light Theme */}
               <div className="flex-1">
-                <div className="flex justify-between items-center mb-6">
-                  <h2 className="text-lg sm:text-xl font-semibold text-beige">
+                <div className="flex justify-between items-center mb-8">
+                  <h2 className="text-xl font-semibold text-gray-800">
                     {productsLoading ? (
-                      <Skeleton className="h-6 sm:h-7 w-24 sm:w-32" />
+                      <Skeleton className="h-7 w-32 bg-gray-200" />
                     ) : (
                       <>
                         {products?.length || 0} {products?.length === 1 ? 'Product' : 'Products'}
@@ -282,8 +297,8 @@ const Collections = () => {
                     )}
                   </h2>
                   <div className="flex items-center gap-2">
-                    <span className="text-beige/70 text-sm hidden sm:inline">Sort by:</span>
-                    <select className="bg-coffee-light border border-beige/20 rounded-md py-1 sm:py-1.5 px-2 sm:px-3 text-beige text-sm sm:text-base focus:outline-none focus:border-gold">
+                    <span className="text-gray-500 hidden sm:inline">Sort by:</span>
+                    <select className="bg-white border border-gray-200 rounded-md py-1.5 px-3 text-gray-700 focus:outline-none focus:border-[#D4AF37] shadow-sm">
                       <option>Latest</option>
                       <option>Price: Low to High</option>
                       <option>Price: High to Low</option>
@@ -292,27 +307,27 @@ const Collections = () => {
                 </div>
                 
                 {productsLoading ? (
-                  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {Array.from({ length: 6 }).map((_, index) => (
-                      <div key={index} className="glass-card overflow-hidden rounded-lg">
-                        <Skeleton className="aspect-square w-full" />
-                        <div className="p-3 sm:p-4 space-y-1 sm:space-y-2">
-                          <Skeleton className="h-5 sm:h-6 w-3/4" />
+                      <div key={index} className="bg-white overflow-hidden rounded-lg border border-gray-200 shadow-sm">
+                        <Skeleton className="aspect-square w-full bg-gray-200" />
+                        <div className="p-4 space-y-2">
+                          <Skeleton className="h-6 w-3/4 bg-gray-200" />
                           <div className="flex justify-between">
-                            <Skeleton className="h-4 w-1/3" />
-                            <Skeleton className="h-4 w-1/4" />
+                            <Skeleton className="h-4 w-1/3 bg-gray-200" />
+                            <Skeleton className="h-4 w-1/4 bg-gray-200" />
                           </div>
                         </div>
                       </div>
                     ))}
                   </div>
                 ) : products?.length === 0 ? (
-                  <div className="text-center py-10 sm:py-16">
-                    <div className="mb-3 sm:mb-4 text-beige/40">
-                      <Search size={36} className="mx-auto" />
+                  <div className="text-center py-16 bg-[#F8F7F4] p-8 border border-gray-200 rounded-lg shadow-sm">
+                    <div className="mb-4 text-gray-300">
+                      <Search size={48} className="mx-auto" />
                     </div>
-                    <h3 className="heading-md mb-2">No Products Found</h3>
-                    <p className="text-beige/70 mb-4 sm:mb-6 text-sm sm:text-base">
+                    <h3 className="text-2xl font-bold text-gray-800 mb-2">No Products Found</h3>
+                    <p className="text-gray-600 mb-6">
                       We couldn't find any products matching your criteria.
                     </p>
                     <button
@@ -322,13 +337,13 @@ const Collections = () => {
                         setSelectedOccasion("all");
                         setSearchQuery("");
                       }}
-                      className="button-outline text-sm sm:text-base py-2 px-4"
+                      className="px-6 py-3 bg-white border border-gray-200 text-gray-700 rounded-lg hover:bg-[#D4AF37] hover:text-white hover:border-[#D4AF37] transition-colors duration-300 shadow-sm"
                     >
                       Reset Filters
                     </button>
                   </div>
                 ) : (
-                  <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     {products?.map((product, index) => (
                       <ProductCard 
                         key={product.id}
@@ -344,7 +359,7 @@ const Collections = () => {
           </div>
         </section>
         
-        {/* Product Lightbox */}
+        {/* Product Lightbox - Light Theme will be handled in ProductDetail component */}
         {selectedProductData && (
           <ProductDetail 
             product={selectedProductData}
@@ -354,7 +369,6 @@ const Collections = () => {
             categoryName={getProductCategoryName(selectedProductData.category_id)}
           />
         )}
-        
       </div>
     </>
   );
