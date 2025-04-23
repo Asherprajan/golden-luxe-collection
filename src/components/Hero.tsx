@@ -1,21 +1,42 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check on initial load
+    checkIfMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkIfMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
   return (
     <section className="relative h-[100vh] flex items-center overflow-hidden bg-white">
       {/* Background image with overlay */}
       <div className="absolute inset-0 z-0">
-        <video 
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/banner.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        {isMobile ? (
+          <img 
+            src="/Swarnalaya_background_mobile.png" 
+            alt="Swarnalaya Background" 
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        ) : (
+          <img 
+            src="/Swarnalaya_background_pc.png" 
+            alt="Swarnalaya Background" 
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
         <div className="absolute inset-0 bg-black/30"></div>
       </div>
       

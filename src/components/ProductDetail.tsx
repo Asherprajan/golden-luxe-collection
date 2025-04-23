@@ -33,12 +33,14 @@ const ProductDetail = ({ product, onClose, materials, occasions, categoryName }:
           <div className="w-full md:w-1/2 p-3 sm:p-6 md:p-8">
             <h3 className="text-lg sm:text-2xl font-bold text-gray-800 mb-1 sm:mb-2 mt-1 sm:mt-0">
               {product.name}
+          y\    
             </h3>
             
             <div className="space-y-2 sm:space-y-4 mb-3 sm:mb-6">
               <p className="text-xs sm:text-base text-gray-600">
                 {product.description || 'This exquisite piece showcases the finest craftsmanship and attention to detail that Swarnalaya is known for. Perfect for special occasions and daily wear alike.'}
               </p>
+
               
               <div className="grid grid-cols-2 gap-2 sm:gap-4 py-2 sm:py-4 border-y border-gray-200">
                 <div>
