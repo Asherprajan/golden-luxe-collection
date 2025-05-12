@@ -28,7 +28,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-
+          
           {/* Quick Links */}
           <div className="animate-fade-in" style={{ animationDelay: '100ms' }}>
             <h3 className="text-xl font-semibold text-gray-800 mb-4">Quick Links</h3>
@@ -60,7 +60,7 @@ const Footer = () => {
               </li>
             </ul>
           </div>
-
+          
           {/* Contact Info */}
           <div className="animate-fade-in" style={{ animationDelay: '200ms' }}>
             <h3 className="text-xl font-semibold text-gray-800 mb-4">Contact Info</h3>
@@ -94,8 +94,8 @@ const Footer = () => {
                 </div>
               </li>
             </ul>
-          </div>
-
+        </div>
+        
           {/* Newsletter */}
           <div className="animate-fade-in" style={{ animationDelay: '300ms' }}>
             <h3 className="text-xl font-semibold text-gray-800 mb-4">Newsletter</h3>
