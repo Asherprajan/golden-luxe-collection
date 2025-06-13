@@ -18,18 +18,25 @@ const CollectionGrid = ({ limit, showHeading = true, animationDelay = false }: C
   const { data: categories, isLoading, error } = useQuery({
     queryKey: ['categories'],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('categories')
-        .select('*')
-        .order('name');
-      
-      if (error) {
-        console.error('Error fetching categories:', error);
-        throw new Error('Failed to fetch categories');
+      try {
+        const { data, error } = await supabase
+          .from('categories')
+          .select('*')
+          .order('name');
+        
+        if (error) {
+          console.error('Supabase Error:', error);
+          throw new Error(`Failed to fetch categories: ${error.message}`);
+        }
+        
+        return data as Category[];
+      } catch (err) {
+        console.error('Network or Fetch Error:', err);
+        throw err;
       }
-      
-      return data as Category[];
-    }
+    },
+    retry: 2,  // Retry failed requests twice
+    retryDelay: 1000  // Wait 1 second between retries
   });
   
   // Process categories with limits if specified
