@@ -155,7 +155,7 @@ const ContactForm = ({ minimal = false }: ContactFormProps) => {
                     </div>
                     <div className="flex justify-between">
                       <span>Tuesday</span>
-                      <span>8:00 AM - 6:00 PM</span>
+                      <span>9:30 AM - 7:00 PM</span>
                     </div>
                     <div className="flex justify-between">
                       <span>Wednesday</span>
