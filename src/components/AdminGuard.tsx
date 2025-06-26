@@ -12,7 +12,7 @@ const AdminGuard = ({ children }: AdminGuardProps) => {
   useEffect(() => {
     // Check if admin is authenticated
     const adminAuth = localStorage.getItem("adminAuthenticated") === "true";
-    setIsAuthenticated(adminAuth);
+    setIsAuthenticated(adminAuth); 
   }, []);
 
   // Show nothing while checking authentication
