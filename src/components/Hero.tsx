@@ -16,15 +16,15 @@ const Hero = () => {
       {/* Banner Image */}
       <div className="relative w-full">
         <img 
-          src={isMobile ? "/swarnalaya_mobile.jpg" : "/swarnalaya_desktop.jpeg"}
+          src={isMobile ? "/swarnalaya_mobile.jpeg" : "/swarnalaya_desktop.jpeg"}
           alt="Swarnalaya Banner"
           className="w-full h-[95vh] object-cover"
         />
         
       </div>
-      <div className="absolute bottom-10 w-screen bg-[#8d092a]/50 flex justify-between items-center px-[25%] py-3"> 
-        <div onClick={() => window.location.href = '/collections'} className="cursor-pointer hover:text-gray-300 transition-colors">Explore Our Collections</div>
-        <div onClick={() => window.location.href = '/contact'} className="cursor-pointer hover:text-gray-300 transition-colors">Book An Appointment</div>
+      <div className={`absolute ${isMobile ? 'bottom-20' : 'bottom-10'} w-screen bg-[#8d092a]/50 flex justify-between items-center px-[25%] py-3`}> 
+        <div onClick={() => window.location.href = '/collections'} className={`cursor-pointer hover:text-gray-300 transition-colors ${isMobile ? 'text-[10px]' : ''}`}>Explore Our Collections</div>
+        <div onClick={() => window.location.href = '/contact'} className={`cursor-pointer hover:text-gray-300 transition-colors ${isMobile ? 'text-[10px]' : ''}`}>Book An Appointment</div>
       </div>
 
     </section>

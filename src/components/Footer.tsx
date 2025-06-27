@@ -97,7 +97,7 @@ const Footer = () => {
         </div>
         
           {/* Newsletter */}
-          <div className="animate-fade-in" style={{ animationDelay: '300ms' }}>
+          {/* <div className="animate-fade-in" style={{ animationDelay: '300ms' }}>
             <h3 className="text-xl font-semibold text-gray-800 mb-4">Newsletter</h3>
             <p className="text-gray-600 mb-4">
               Subscribe to our newsletter for exclusive offers, new collections, and jewelry care tips.
@@ -115,7 +115,7 @@ const Footer = () => {
                 Subscribe
               </button>
             </form>
-          </div>
+          </div> */}
         </div>
 
         {/* Copyright */}
